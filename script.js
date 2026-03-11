@@ -49,6 +49,12 @@ index = 0;
 
 }
 
+function openCategory(category){
+
+window.location.href = "products.html?cat=" + category;
+
+}
+
 setInterval(changeBackground,4000);
 
 changeBackground();
