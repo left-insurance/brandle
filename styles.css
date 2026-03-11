@@ -116,3 +116,41 @@ color:white;
 text-align:center;
 padding:20px;
 }
+
+/* DARK MODE */
+
+.dark-mode{
+background:#121212;
+color:#e5e5e5;
+}
+
+.dark-mode header{
+background:#0a0a0a;
+}
+
+.dark-mode .cat{
+background:#00f7ff;
+color:black;
+box-shadow:0 0 12px #00f7ff;
+}
+
+.dark-mode .search-box button{
+background:#00f7ff;
+color:black;
+box-shadow:0 0 12px #00f7ff;
+}
+
+.dark-mode .card{
+background:#1e1e1e;
+color:white;
+}
+
+#darkToggle{
+margin-left:20px;
+padding:6px 12px;
+border:none;
+border-radius:6px;
+cursor:pointer;
+background:#2563eb;
+color:white;
+}
