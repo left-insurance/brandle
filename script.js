@@ -7,10 +7,10 @@ alert("Searching prices for: "+product);
 }
 
 
-const toggle=document.getElementById("darkToggle");
+const toggle=document.getElementById("modeToggle");
 
-toggle.addEventListener("click",function(){
+toggle.addEventListener("change",function(){
 
-document.body.classList.toggle("dark-mode");
+document.body.classList.toggle("light-mode");
 
 });
