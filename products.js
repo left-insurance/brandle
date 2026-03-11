@@ -8,33 +8,93 @@ const grid = document.getElementById("productGrid");
 const products = {
 
 cool: [
-{ name: "Mini Projector", price: "₹2999", img: "https://images.unsplash.com/photo-1593784991095-a205069470b6" },
-{ name: "Magnetic Charging Cable", price: "₹399", img: "https://images.unsplash.com/photo-1580910051074-3eb694886505" },
-{ name: "Portable Monitor", price: "₹7999", img: "https://images.unsplash.com/photo-1587202372775-e229f172b9d7" }
+{
+name: "Mini Projector",
+price: "₹2999",
+img: "https://m.media-amazon.com/images/I/61G2h2QqKJL._AC_SL1500_.jpg"
+},
+{
+name: "Magnetic Charging Cable",
+price: "₹399",
+img: "https://m.media-amazon.com/images/I/61vKQ0K9JPL._AC_SL1500_.jpg"
+},
+{
+name: "Portable Monitor",
+price: "₹7999",
+img: "https://m.media-amazon.com/images/I/71D8+8YzJ7L._AC_SL1500_.jpg"
+}
 ],
 
 toys: [
-{ name: "VR Headset", price: "₹2499", img: "https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac" },
-{ name: "Mini Drone", price: "₹3499", img: "https://images.unsplash.com/photo-1508614589041-895b88991e3e" },
-{ name: "Smart LED Cube", price: "₹999", img: "https://images.unsplash.com/photo-1558002038-1055907df827" }
+{
+name: "VR Headset",
+price: "₹2499",
+img: "https://m.media-amazon.com/images/I/61P0L2q3y4L._AC_SL1500_.jpg"
+},
+{
+name: "Mini Drone",
+price: "₹3499",
+img: "https://m.media-amazon.com/images/I/61Xn+3oQ4XL._AC_SL1500_.jpg"
+},
+{
+name: "Smart LED Cube",
+price: "₹999",
+img: "https://m.media-amazon.com/images/I/71n2o6xk+TL._AC_SL1500_.jpg"
+}
 ],
 
 500: [
-{ name: "LED Strip Lights", price: "₹299", img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64" },
-{ name: "Phone Stand", price: "₹199", img: "https://images.unsplash.com/photo-1603898037225-1a1d9b6dca3a" },
-{ name: "Cable Organizer", price: "₹149", img: "https://images.unsplash.com/photo-1616627458315-c0b0e4bcea90" }
+{
+name: "LED Strip Lights",
+price: "₹299",
+img: "https://m.media-amazon.com/images/I/71kI9v8Hj4L._AC_SL1500_.jpg"
+},
+{
+name: "Phone Stand",
+price: "₹199",
+img: "https://m.media-amazon.com/images/I/61Y3yCqXlIL._AC_SL1500_.jpg"
+},
+{
+name: "Cable Organizer",
+price: "₹149",
+img: "https://m.media-amazon.com/images/I/61M8NnYQ2GL._AC_SL1500_.jpg"
+}
 ],
 
 1000: [
-{ name: "Bluetooth Speaker", price: "₹899", img: "https://images.unsplash.com/photo-1589003077984-894e133dabab" },
-{ name: "Gaming Mouse", price: "₹799", img: "https://images.unsplash.com/photo-1587202372616-b43abea06c2a" },
-{ name: "Laptop Cooling Pad", price: "₹999", img: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8" }
+{
+name: "Bluetooth Speaker",
+price: "₹899",
+img: "https://m.media-amazon.com/images/I/71l2pQX9pGL._AC_SL1500_.jpg"
+},
+{
+name: "Gaming Mouse",
+price: "₹799",
+img: "https://m.media-amazon.com/images/I/61mpMH5TzkL._AC_SL1500_.jpg"
+},
+{
+name: "Laptop Cooling Pad",
+price: "₹999",
+img: "https://m.media-amazon.com/images/I/71l6MZ3kqQL._AC_SL1500_.jpg"
+}
 ],
 
 trending: [
-{ name: "Smart Ring", price: "₹6999", img: "https://images.unsplash.com/photo-1629376539308-7b5c8e52f5f0" },
-{ name: "AI Voice Recorder", price: "₹4999", img: "https://images.unsplash.com/photo-1518441902117-b3b1d0c5b0f9" },
-{ name: "Portable Projector", price: "₹3999", img: "https://images.unsplash.com/photo-1593784991095-a205069470b6" }
+{
+name: "Smart Ring",
+price: "₹6999",
+img: "https://m.media-amazon.com/images/I/61d5LJbK2VL._AC_SL1500_.jpg"
+},
+{
+name: "AI Voice Recorder",
+price: "₹4999",
+img: "https://m.media-amazon.com/images/I/61Yx6XlH4EL._AC_SL1500_.jpg"
+},
+{
+name: "Portable Projector",
+price: "₹3999",
+img: "https://m.media-amazon.com/images/I/61G2h2QqKJL._AC_SL1500_.jpg"
+}
 ]
 
 };
@@ -44,6 +104,7 @@ title.innerText = category.toUpperCase() + " GADGETS";
 products[category].forEach(product => {
 
 const card = document.createElement("div");
+
 card.className = "card";
 
 card.innerHTML = `
