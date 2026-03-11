@@ -3,7 +3,6 @@ const params = new URLSearchParams(window.location.search);
 const category = params.get("cat");
 
 const title = document.getElementById("categoryTitle");
-
 const grid = document.getElementById("productGrid");
 
 const products = {
@@ -20,6 +19,24 @@ toys: [
 { name: "Smart LED Cube", price: "₹999" }
 ],
 
+500: [
+{ name: "LED Strip Lights", price: "₹299" },
+{ name: "Phone Stand", price: "₹199" },
+{ name: "Cable Organizer", price: "₹149" }
+],
+
+1000: [
+{ name: "Bluetooth Speaker", price: "₹899" },
+{ name: "Gaming Mouse", price: "₹799" },
+{ name: "Laptop Cooling Pad", price: "₹999" }
+],
+
+trending: [
+{ name: "Smart Ring", price: "₹6999" },
+{ name: "AI Voice Recorder", price: "₹4999" },
+{ name: "Portable Projector", price: "₹3999" }
+]
+
 };
 
 title.innerText = category.toUpperCase() + " GADGETS";
@@ -27,7 +44,6 @@ title.innerText = category.toUpperCase() + " GADGETS";
 products[category].forEach(product => {
 
 const card = document.createElement("div");
-
 card.className = "card";
 
 card.innerHTML =
