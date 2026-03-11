@@ -18,13 +18,18 @@ document.body.classList.toggle("light-mode");
 });
 
 
-/* HERO BACKGROUND SLIDER */
+/* HERO SLIDER */
 
 const images = [
-"https://images.unsplash.com/photo-1518779578993-ec3579fee39f",
-"https://images.unsplash.com/photo-1511707171634-5f897ff02aa9",
-"https://images.unsplash.com/photo-1498049794561-7780e7231661",
-"https://images.unsplash.com/photo-1587202372775-e229f172b9d7"
+
+"https://images.unsplash.com/photo-1511707171634-5f897ff02aa9",   // smartphone
+
+"https://images.unsplash.com/photo-1518770660439-4636190af475",   // gadgets desk
+
+"https://images.unsplash.com/photo-1498049794561-7780e7231661",   // laptop setup
+
+"https://images.unsplash.com/photo-1587202372775-e229f172b9d7"    // gaming tech
+
 ];
 
 let index = 0;
