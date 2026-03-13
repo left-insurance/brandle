@@ -1,6 +1,6 @@
 const grid = document.getElementById("productGrid");
 
-fetch("https://dummyjson.com/products/category/smartphones")
+fetch("https://dummyjson.com/products")
 
 .then(res => res.json())
 
@@ -12,13 +12,13 @@ displayProducts(data.products);
 
 function displayProducts(products){
 
-grid.innerHTML="";
+grid.innerHTML = "";
 
 products.forEach(product => {
 
-const card=document.createElement("div");
+const card = document.createElement("div");
 
-card.className="card";
+card.className = "card";
 
 card.innerHTML = `
 
@@ -42,16 +42,13 @@ card.innerHTML = `
 
 `;
 
-const button = card.querySelector(".buyBtn");
+const button = card.querySelector(".amazon-btn");
 
 button.addEventListener("click",function(){
 
-const searchQuery = product.title.replace(/ /g,"+");
+const query = product.title.replace(/ /g,"+");
 
-window.open(
-"https://www.amazon.in/s?k=" + searchQuery,
-"_blank"
-);
+window.open("https://www.amazon.in/s?k="+query);
 
 });
 
