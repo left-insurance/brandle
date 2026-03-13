@@ -311,3 +311,93 @@ font-weight:600;
 background:#00d7dd;
 
 }
+
+/* PRODUCT LIST */
+
+.review-grid{
+display:flex;
+flex-direction:column;
+gap:25px;
+}
+
+
+/* CARD */
+
+.product-card{
+
+display:flex;
+align-items:center;
+gap:25px;
+
+background:#1f1f1f;
+
+padding:20px;
+
+border-radius:12px;
+
+box-shadow:0 6px 20px rgba(0,0,0,0.4);
+
+}
+
+
+/* IMAGE */
+
+.product-image img{
+
+width:200px;
+height:150px;
+
+object-fit:contain;
+
+background:white;
+
+padding:10px;
+
+border-radius:8px;
+
+}
+
+
+/* TEXT */
+
+.product-info h3{
+
+font-size:20px;
+
+margin-bottom:5px;
+
+}
+
+
+.price{
+
+font-size:18px;
+
+color:#00f7ff;
+
+font-weight:600;
+
+}
+
+
+/* AMAZON BUTTON */
+
+.amazon-btn{
+
+background:linear-gradient(135deg,#ff9900,#ffb84d);
+
+border:none;
+
+padding:10px 18px;
+
+border-radius:8px;
+
+font-weight:600;
+
+cursor:pointer;
+
+color:black;
+
+margin-top:10px;
+
+}
