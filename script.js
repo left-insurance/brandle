@@ -1,8 +1,8 @@
 function searchProduct(){
 
-const product=document.getElementById("searchInput").value;
+const query = document.getElementById("searchInput").value;
 
-alert("Searching prices for: "+product);
+window.location.href = "products.html?search=" + query;
 
 }
 
