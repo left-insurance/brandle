@@ -1,21 +1,22 @@
 const grid = document.getElementById("productGrid");
+const filter = document.getElementById("priceFilter");
 
 const params = new URLSearchParams(window.location.search);
-
 const searchQuery = params.get("search") || "gadgets";
 
-const url = `https://real-time-amazon-data.p.rapidapi.com/search?query=${searchQuery}&country=IN&page=1`;
+let products = [];
 
-fetch(url, {
+/* LOADING */
+
+grid.innerHTML = `<div class="loader"></div>`;
+
+fetch(`https://real-time-amazon-data.p.rapidapi.com/search?query=${searchQuery}&country=IN&page=1`, {
 
 method: "GET",
 
 headers: {
-
 "X-RapidAPI-Key": "10ec1b5b9bmsh94024ce5ecef51ap100b88jsne4edc7db587b",
-
 "X-RapidAPI-Host": "real-time-amazon-data.p.rapidapi.com"
-
 }
 
 })
@@ -24,15 +25,18 @@ headers: {
 
 .then(data => {
 
-displayProducts(data.data.products);
+products = data.data.products;
+
+displayProducts(products);
 
 });
 
-function displayProducts(products){
+
+function displayProducts(list){
 
 grid.innerHTML="";
 
-products.forEach(product=>{
+list.forEach(product=>{
 
 const card=document.createElement("div");
 
@@ -69,3 +73,36 @@ grid.appendChild(card);
 });
 
 }
+
+
+/* FILTER */
+
+filter.addEventListener("change",function(){
+
+let sorted=[...products];
+
+if(this.value==="low"){
+
+sorted.sort((a,b)=>{
+
+return parseFloat(a.product_price.replace(/[^0-9.]/g,'')) -
+parseFloat(b.product_price.replace(/[^0-9.]/g,''))
+
+});
+
+}
+
+if(this.value==="high"){
+
+sorted.sort((a,b)=>{
+
+return parseFloat(b.product_price.replace(/[^0-9.]/g,'')) -
+parseFloat(a.product_price.replace(/[^0-9.]/g,''))
+
+});
+
+}
+
+displayProducts(sorted);
+
+});
