@@ -401,3 +401,27 @@ color:black;
 margin-top:10px;
 
 }
+
+/* FILTER STYLE */
+
+#priceFilter{
+
+padding:10px 14px;
+
+border-radius:8px;
+
+border:none;
+
+background:#00f7ff;
+
+color:black;
+
+font-weight:600;
+
+font-size:14px;
+
+margin-left:10px;
+
+cursor:pointer;
+
+}
