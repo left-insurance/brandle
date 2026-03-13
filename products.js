@@ -27,6 +27,16 @@ headers: {
 
 products = data.data.products;
 
+const category = params.get("cat");
+
+if(category === "500"){
+products = products.filter(p => parseFloat(p.product_price.replace(/[^0-9.]/g,'')) <= 500);
+}
+
+if(category === "1000"){
+products = products.filter(p => parseFloat(p.product_price.replace(/[^0-9.]/g,'')) <= 1000);
+}
+
 displayProducts(products);
 
 });
