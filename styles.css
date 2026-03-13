@@ -734,4 +734,90 @@ box-shadow:0 15px 40px rgba(0,0,0,0.6);
 
 }
 
+/* HEADER */
 
+header{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:18px 50px;
+
+background:rgba(18,18,18,0.75);
+
+backdrop-filter:blur(12px);
+
+border-bottom:1px solid rgba(255,255,255,0.08);
+
+}
+
+.logo{
+
+font-size:26px;
+
+font-weight:700;
+
+letter-spacing:1px;
+
+color:#00f7ff;
+
+}
+
+nav a{
+
+margin-left:22px;
+
+font-weight:500;
+
+opacity:0.9;
+
+}
+
+nav a:hover{
+
+color:#00f7ff;
+
+}
+
+.hero{
+
+height:420px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+text-align:center;
+
+background:linear-gradient(180deg,#111,#000);
+
+}
+
+.hero h1{
+
+font-size:42px;
+
+margin-bottom:12px;
+
+}
+
+.hero p{
+
+opacity:0.7;
+
+margin-bottom:25px;
+
+}
+
+.rating{
+
+font-size:14px;
+
+color:#ffcc00;
+
+font-weight:600;
+
+margin-bottom:5px;
+
+}
