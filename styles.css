@@ -294,3 +294,20 @@ object-fit:cover;
 
 }
 
+.buyBtn{
+
+background:#00f7ff;
+border:none;
+padding:10px;
+margin:10px;
+cursor:pointer;
+border-radius:6px;
+font-weight:600;
+
+}
+
+.buyBtn:hover{
+
+background:#00d7dd;
+
+}
