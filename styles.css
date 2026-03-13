@@ -843,3 +843,23 @@ font-weight:600;
 margin-bottom:5px;
 
 }
+
+.hero{
+
+height:450px;
+position:relative;
+overflow:hidden;
+
+background-size:cover;
+background-position:center;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+}
+
+.hero h1{
+font-size:42px;
+z-index:2;
+}
