@@ -1,3 +1,25 @@
+const params = new URLSearchParams(window.location.search);
+
+const searchQuery = params.get("search");
+
+let url = "https://dummyjson.com/products";
+
+if(searchQuery){
+
+url = "https://dummyjson.com/products/search?q=" + searchQuery;
+
+}
+
+fetch(url)
+
+.then(res => res.json())
+
+.then(data => {
+
+displayProducts(data.products);
+
+});
+
 const grid = document.getElementById("productGrid");
 
 fetch("https://dummyjson.com/products")
