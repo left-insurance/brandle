@@ -4,13 +4,22 @@ const filter = document.getElementById("priceFilter");
 const params = new URLSearchParams(window.location.search);
 const searchQuery = params.get("search") || "gadgets";
 
+const category = params.get("cat");
+
+let query = searchQuery || "gadgets";
+
+if(category === "toys") query = "gaming gadgets";
+
+if(category === "cool") query = "cool gadgets";
+
+if(category === "trending") query = "latest tech";
 let products = [];
 
 /* LOADING */
 
 grid.innerHTML = `<div class="loader"></div>`;
 
-fetch(`https://real-time-amazon-data.p.rapidapi.com/search?query=${searchQuery}&country=IN&page=1`, {
+fetch(`https://real-time-amazon-data.p.rapidapi.com/search?query=${query}&country=IN&page=1`, {
 
 method: "GET",
 
