@@ -101,17 +101,48 @@ grid.appendChild(card);
 
 
 /* FILTER */
+const priceFilter = document.getElementById("priceFilter");
+const ratingFilter = document.getElementById("ratingFilter");
 
-filter.addEventListener("change",function(){
+function applyFilters(){
 
-let sorted=[...products];
+let filtered=[...products];
 
-if(this.value==="low"){
+let priceOption = priceFilter.value;
+let ratingOption = parseFloat(ratingFilter.value);
 
-sorted.sort((a,b)=>{
+if(priceOption==="low"){
 
-return parseFloat(a.product_price.replace(/[^0-9.]/g,'')) -
+filtered.sort((a,b)=>
+parseFloat(a.product_price.replace(/[^0-9.]/g,'')) -
 parseFloat(b.product_price.replace(/[^0-9.]/g,''))
+);
+
+}
+
+if(priceOption==="high"){
+
+filtered.sort((a,b)=>
+parseFloat(b.product_price.replace(/[^0-9.]/g,'')) -
+parseFloat(a.product_price.replace(/[^0-9.]/g,''))
+);
+
+}
+
+filtered = filtered.filter(p => {
+
+let rating=parseFloat(p.product_star_rating || 4);
+
+return rating >= ratingOption;
+
+});
+
+displayProducts(filtered);
+
+}
+
+priceFilter.addEventListener("change",applyFilters);
+ratingFilter.addEventListener("change",applyFilters);
 
 });
 
