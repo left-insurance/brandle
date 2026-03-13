@@ -1,78 +1,68 @@
+const grid = document.getElementById("productGrid");
+
 const params = new URLSearchParams(window.location.search);
 
-const searchQuery = params.get("search");
+const searchQuery = params.get("search") || "gadgets";
 
-let url = "https://dummyjson.com/products";
+const url = `https://real-time-amazon-data.p.rapidapi.com/search?query=${searchQuery}&country=IN&page=1`;
 
-if(searchQuery){
+fetch(url, {
 
-url = "https://dummyjson.com/products/search?q=" + searchQuery;
+method: "GET",
+
+headers: {
+
+"X-RapidAPI-Key": "10ec1b5b9bmsh94024ce5ecef51ap100b88jsne4edc7db587b",
+
+"X-RapidAPI-Host": "real-time-amazon-data.p.rapidapi.com"
 
 }
 
-fetch(url)
+})
 
 .then(res => res.json())
 
 .then(data => {
 
-displayProducts(data.products);
-
-});
-
-const grid = document.getElementById("productGrid");
-
-fetch("https://dummyjson.com/products")
-
-.then(res => res.json())
-
-.then(data => {
-
-displayProducts(data.products);
+displayProducts(data.data.products);
 
 });
 
 function displayProducts(products){
 
-grid.innerHTML = "";
+grid.innerHTML="";
 
-products.forEach(product => {
+products.forEach(product=>{
 
-const card = document.createElement("div");
+const card=document.createElement("div");
 
-card.className = "card";
+card.className="card";
 
-card.innerHTML = `
+card.innerHTML=`
 
 <div class="product-card">
 
 <div class="product-image">
-<img src="${product.thumbnail}">
+<img src="${product.product_photo}">
 </div>
 
 <div class="product-info">
 
-<h3>${product.title}</h3>
+<h3>${product.product_title}</h3>
 
-<p class="price">₹${product.price}</p>
+<p class="price">${product.product_price}</p>
+
+<a href="${product.product_url}" target="_blank">
 
 <button class="amazon-btn">Buy on Amazon</button>
+
+</a>
 
 </div>
 
 </div>
 
 `;
-
-const button = card.querySelector(".amazon-btn");
-
-button.addEventListener("click",function(){
-
-const query = product.title.replace(/ /g,"+");
-
-window.open("https://www.amazon.in/s?k="+query);
-
-});
 
 grid.appendChild(card);
 
