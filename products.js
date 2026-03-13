@@ -20,15 +20,25 @@ const card=document.createElement("div");
 
 card.className="card";
 
-card.innerHTML=`
+card.innerHTML = `
 
-<img src="${product.thumbnail}" alt="${product.title}">
+<div class="product-card">
+
+<div class="product-image">
+<img src="${product.thumbnail}">
+</div>
+
+<div class="product-info">
 
 <h3>${product.title}</h3>
 
-<p style="padding:10px">Price: ₹${product.price}</p>
+<p class="price">₹${product.price}</p>
 
-<button class="buyBtn">Buy on Amazon</button>
+<button class="amazon-btn">Buy on Amazon</button>
+
+</div>
+
+</div>
 
 `;
 
