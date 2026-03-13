@@ -73,6 +73,12 @@ card.innerHTML=`
 
 <h3>${product.product_title}</h3>
 
+<div class="rating">
+
+⭐ ${product.product_star_rating || "4.2"}
+
+</div>
+
 <p class="price">${product.product_price}</p>
 
 <a href="${product.product_url}" target="_blank">
@@ -122,6 +128,23 @@ parseFloat(a.product_price.replace(/[^0-9.]/g,''))
 
 }
 
+const ratingFilter = document.getElementById("ratingFilter");
+
+ratingFilter.addEventListener("change",function(){
+
+let minRating = parseFloat(this.value);
+
+let filtered = products.filter(p => {
+
+let rating = parseFloat(p.product_star_rating || 4);
+
+return rating >= minRating;
+
+});
+
+displayProducts(filtered);
+
+});
 displayProducts(sorted);
 
 });
