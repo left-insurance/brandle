@@ -50,3 +50,22 @@ index = 0;
 setInterval(changeBackground,4000);
 
 changeBackground();
+
+function randomGadget(){
+
+const gadgets = [
+
+"mini projector",
+"smart ring",
+"portable monitor",
+"gaming mouse",
+"mini drone",
+"thermal printer"
+
+];
+
+const random = gadgets[Math.floor(Math.random()*gadgets.length)];
+
+window.location.href = "products.html?search=" + random;
+
+}
