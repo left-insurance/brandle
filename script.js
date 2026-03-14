@@ -1,8 +1,6 @@
-function searchProduct(){
+function openCategory(category){
 
-const query = document.getElementById("searchInput").value;
-
-window.location.href = "products.html?search=" + query;
+window.location.href = "products.html?cat=" + category;
 
 }
 
