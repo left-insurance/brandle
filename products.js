@@ -49,11 +49,27 @@ headers:{
 .then(res=>res.json())
 
 .then(data=>{
-
 products = data.data.products;
 
-displayProducts(products);
+/* CATEGORY PRICE FILTER */
 
+if(category === "500"){
+
+products = products.filter(p => 
+parseFloat(p.product_price.replace(/[^0-9.]/g,'')) <= 500
+);
+
+}
+
+if(category === "1000"){
+
+products = products.filter(p => 
+parseFloat(p.product_price.replace(/[^0-9.]/g,'')) <= 1000
+);
+
+}
+
+displayProducts(products);
 });
 
 /* DISPLAY PRODUCTS */
