@@ -918,3 +918,90 @@ font-weight:600;
 cursor:pointer;
 
 }
+
+
+/* MOBILE RESPONSIVE */
+
+@media (max-width: 768px){
+
+/* HEADER */
+
+header{
+flex-direction:column;
+padding:15px;
+text-align:center;
+}
+
+/* NAV */
+
+nav{
+margin-top:10px;
+}
+
+nav a{
+margin:8px;
+display:inline-block;
+}
+
+/* HERO */
+
+.hero{
+height:350px;
+padding:20px;
+}
+
+.hero h1{
+font-size:26px;
+}
+
+/* SEARCH */
+
+.search-box{
+flex-direction:column;
+align-items:center;
+}
+
+.search-box input{
+width:90%;
+margin-bottom:10px;
+}
+
+.search-box button{
+width:150px;
+}
+
+/* CATEGORY GRID */
+
+.category-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+/* PRODUCT CARDS */
+
+.product-card{
+flex-direction:column;
+text-align:center;
+}
+
+.product-image img{
+width:100%;
+height:auto;
+}
+
+.product-info{
+align-items:center;
+}
+
+/* GEMS SECTION */
+
+.gems-grid{
+flex-direction:column;
+}
+
+/* BUTTON */
+
+.cool-btn{
+width:80%;
+}
+
+}
