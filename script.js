@@ -81,3 +81,7 @@ if(query === "") return;
 window.location.href = "products.html?search=" + encodeURIComponent(query);
 
 }
+
+function goHome(){
+window.location.href = "index.html";
+}
