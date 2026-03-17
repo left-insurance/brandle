@@ -1005,3 +1005,12 @@ width:80%;
 }
 
 }
+
+.cool-btn{
+
+font-size:16px;
+padding:16px 28px;
+
+box-shadow:0 0 20px rgba(0,247,255,0.4);
+
+}
