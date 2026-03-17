@@ -69,3 +69,15 @@ const random = gadgets[Math.floor(Math.random()*gadgets.length)];
 window.location.href = "products.html?search=" + random;
 
 }
+
+function searchProduct(){
+
+const input = document.getElementById("searchInput");
+
+const query = input.value.trim();
+
+if(query === "") return;
+
+window.location.href = "products.html?search=" + encodeURIComponent(query);
+
+}
