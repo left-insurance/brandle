@@ -185,3 +185,15 @@ if(ratingFilter){
 ratingFilter.addEventListener("change",applyFilters);
 
 }
+
+function buyProduct(title){
+
+const query = title.replace(/ /g,"+");
+
+const affiliateID = "brandle0a-21"; // ← replace if different
+
+const url = `https://www.amazon.in/s?k=${query}&tag=${affiliateID}`;
+
+window.open(url,"_blank");
+
+}
