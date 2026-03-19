@@ -103,7 +103,7 @@ card.innerHTML=`
 <p class="price">${product.product_price}</p>
 
 <button class="amazon-btn" onclick="buyProduct('${product.product_title}')">
-🔥 Check Best Price
+ Check Best Price
 </button>
 
 </a>
