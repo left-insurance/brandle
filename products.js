@@ -102,7 +102,9 @@ card.innerHTML=`
 
 <p class="price">${product.product_price}</p>
 
-<a href="${product.product_url}" target="_blank">
+<button class="amazon-btn" onclick="buyProduct('${product.product_title}')">
+🔥 Check Best Price
+</button>
 
 <button class="amazon-btn">
 Buy on Amazon
