@@ -1353,3 +1353,26 @@ background-size:cover !important;
 background-position:center !important;
 
 }
+
+.rating{
+
+color:#ffd700;
+font-size:14px;
+
+}
+
+.reviews{
+
+color:#aaa;
+font-size:12px;
+margin-left:5px;
+
+}
+
+.trust{
+
+font-size:12px;
+color:#4caf50;
+margin-top:4px;
+
+}
