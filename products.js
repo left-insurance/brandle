@@ -19,8 +19,11 @@ else searchQuery = "gadgets";
 }
 
 /* LOADING */
-
-grid.innerHTML = "Loading...";
+grid.innerHTML = `
+<div style="display:flex; justify-content:center; align-items:center; height:200px;">
+  <div class="loader"></div>
+</div>
+`;
 
 /* FETCH PRODUCTS */
 
