@@ -106,10 +106,6 @@ card.innerHTML=`
 🔥 Check Best Price
 </button>
 
-<button class="amazon-btn">
-Buy on Amazon
-</button>
-
 </a>
 
 </div>
