@@ -1096,3 +1096,195 @@ border-radius:10px;
 padding:8px;
 
 }
+
+/* ===== GLOBAL FONT ===== */
+
+body{
+font-family: 'Inter', sans-serif;
+background:#0f0f10;
+color:white;
+}
+
+
+/* ===== HERO PREMIUM ===== */
+
+.hero{
+
+height:420px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+text-align:center;
+
+background:linear-gradient(180deg,#0f0f10,#000);
+
+}
+
+.hero h1{
+
+font-size:42px;
+font-weight:700;
+
+}
+
+.hero p{
+
+opacity:0.6;
+margin-top:10px;
+
+}
+
+
+/* ===== SEARCH PREMIUM ===== */
+
+.search-box input{
+
+background:#1a1a1d;
+
+border:1px solid rgba(255,255,255,0.08);
+
+color:white;
+
+padding:14px 18px;
+
+border-radius:14px;
+
+width:380px;
+
+}
+
+.search-box button{
+
+background:#ffffff;
+
+color:black;
+
+border:none;
+
+padding:14px 20px;
+
+border-radius:14px;
+
+font-weight:600;
+
+cursor:pointer;
+
+}
+
+
+/* ===== BUTTON (NEW CLEAN STYLE) ===== */
+
+.price-btn{
+
+background:#ffffff;
+
+color:black;
+
+border:none;
+
+padding:12px 20px;
+
+border-radius:12px;
+
+font-weight:600;
+
+font-size:14px;
+
+cursor:pointer;
+
+transition:all 0.2s ease;
+
+}
+
+.price-btn:hover{
+
+background:#eaeaea;
+
+transform:translateY(-2px);
+
+}
+
+
+/* ===== FILTER (CLEAN & PREMIUM) ===== */
+
+#priceFilter, #ratingFilter{
+
+background:#1a1a1d;
+
+color:white;
+
+border:1px solid rgba(255,255,255,0.1);
+
+padding:10px 14px;
+
+border-radius:10px;
+
+font-size:14px;
+
+font-weight:500;
+
+margin-right:10px;
+
+cursor:pointer;
+
+}
+
+
+/* ===== PRODUCT CARD CLEAN ===== */
+
+.product-card{
+
+background:#161616;
+
+border-radius:16px;
+
+padding:20px;
+
+display:flex;
+
+gap:25px;
+
+border:1px solid rgba(255,255,255,0.05);
+
+}
+
+.product-image img{
+
+width:170px;
+height:130px;
+
+object-fit:contain;
+
+background:white;
+
+border-radius:10px;
+
+padding:8px;
+
+}
+
+.loader{
+
+border:6px solid #222;
+
+border-top:6px solid #fff;
+
+border-radius:50%;
+
+width:50px;
+height:50px;
+
+animation:spin 1s linear infinite;
+
+margin:60px auto;
+
+}
+
+@keyframes spin{
+
+0%{transform:rotate(0deg);}
+100%{transform:rotate(360deg);}
+
+}
