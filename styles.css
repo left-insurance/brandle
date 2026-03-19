@@ -1343,3 +1343,13 @@ margin:60px auto;
 100%{transform:rotate(360deg);}
 
 }
+
+.hero{
+
+height:420px !important;
+
+background-size:cover !important;
+
+background-position:center !important;
+
+}
