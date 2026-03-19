@@ -122,65 +122,53 @@ grid.appendChild(card);
 
 /* APPLY FILTERS */
 
+const priceFilter = document.getElementById("priceFilter");
+const ratingFilter = document.getElementById("ratingFilter");
+
 function applyFilters(){
+
+/* SHOW LOADING */
+
+grid.innerHTML = `<div class="loader"></div>`;
+
+/* DELAY FOR EFFECT */
+
+setTimeout(()=>{
 
 let filtered=[...products];
 
 /* PRICE SORT */
 
-if(priceFilter && priceFilter.value==="low"){
-
+if(priceFilter.value==="low"){
 filtered.sort((a,b)=>
-
 parseFloat(a.product_price.replace(/[^0-9.]/g,'')) -
 parseFloat(b.product_price.replace(/[^0-9.]/g,''))
-
 );
-
 }
 
-if(priceFilter && priceFilter.value==="high"){
-
+if(priceFilter.value==="high"){
 filtered.sort((a,b)=>
-
 parseFloat(b.product_price.replace(/[^0-9.]/g,'')) -
 parseFloat(a.product_price.replace(/[^0-9.]/g,''))
-
 );
-
 }
 
 /* RATING FILTER */
 
-if(ratingFilter && ratingFilter.value!=="0"){
-
+if(ratingFilter.value!=="0"){
 filtered = filtered.filter(p=>
-
 parseFloat(p.product_star_rating || 4) >= ratingFilter.value
-
 );
-
 }
-
-/* DISPLAY */
 
 displayProducts(filtered);
 
+},500);
+
 }
-
-/* FILTER EVENTS */
-
-if(priceFilter){
 
 priceFilter.addEventListener("change",applyFilters);
-
-}
-
-if(ratingFilter){
-
 ratingFilter.addEventListener("change",applyFilters);
-
-}
 
 function buyProduct(title){
 
