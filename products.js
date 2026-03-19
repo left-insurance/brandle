@@ -8,7 +8,7 @@ const searchQuery = params.get("search") || "gadgets";
 let products = [];
 
 /* LOAD PRODUCTS */
-const page = Math.floor(Math.random() * 5) + 1;
+const page = searchQuery ? 1 : Math.floor(Math.random() * 5) + 1;
 
 fetch(`https://real-time-amazon-data.p.rapidapi.com/search?query=${searchQuery}&country=IN&page=${page}`,
 method: "GET",
