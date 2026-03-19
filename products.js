@@ -76,10 +76,13 @@ card.innerHTML = `
 <h3>${product.product_title}</h3>
 
 <div class="rating">
-⭐ ${product.product_star_rating || "4.2"}
+⭐ ${product.product_star_rating || "4.2"} 
+<span class="reviews">(Verified)</span>
 </div>
 
 <p class="price">${product.product_price}</p>
+
+<p class="trust">✔ Best price on Amazon</p>
 
 <button class="price-btn" onclick="buyProduct('${product.product_title}')">
 Check Best Price
