@@ -99,6 +99,14 @@ grid.appendChild(card);
 
 function applyFilters(){
 
+/* SHOW SPINNER */
+
+grid.innerHTML = `<div class="loader"></div>`;
+
+/* SMALL DELAY FOR UX */
+
+setTimeout(()=>{
+
 let filtered = [...products];
 
 /* PRICE SORT */
@@ -125,7 +133,11 @@ parseFloat(p.product_star_rating || 4) >= ratingFilter.value
 );
 }
 
+/* SHOW RESULTS */
+
 displayProducts(filtered);
+
+},400);
 
 }
 
