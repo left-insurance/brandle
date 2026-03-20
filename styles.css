@@ -1514,3 +1514,62 @@ cursor:pointer;
 box-shadow:inset 0 -100px 150px rgba(0,0,0,0.7);
 
 }
+
+/* HERO GRADIENT GLOW */
+
+.hero{
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+/* GLOW LAYER */
+
+.hero::before{
+
+content:"";
+
+position:absolute;
+
+width:600px;
+height:600px;
+
+background:radial-gradient(circle, rgba(0,255,200,0.15), transparent 70%);
+
+top:-100px;
+left:-100px;
+
+z-index:0;
+
+}
+
+/* SECOND GLOW */
+
+.hero::after{
+
+content:"";
+
+position:absolute;
+
+width:500px;
+height:500px;
+
+background:radial-gradient(circle, rgba(0,150,255,0.12), transparent 70%);
+
+bottom:-100px;
+right:-100px;
+
+z-index:0;
+
+}
+
+/* KEEP TEXT ABOVE */
+
+.hero-content{
+
+position:relative;
+z-index:2;
+
+}
