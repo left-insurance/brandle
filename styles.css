@@ -1386,7 +1386,7 @@ margin-top:4px;
 display:flex;
 align-items:center;
 
-gap:8px;
+gap:6px;
 
 font-weight:600;
 
@@ -1396,16 +1396,12 @@ letter-spacing:0.5px;
 
 }
 
+/* BIGGER B ICON */
+
 .logo-img{
 
-width:18px;
-height:18px;
-
-object-fit:contain;
-
-display:block;
-
-}
+width:26px;
+height:26px;
 
 object-fit:contain;
 
