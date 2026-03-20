@@ -1406,3 +1406,31 @@ height:36px;
 object-fit:contain;
 
 }
+
+.price-btn{
+
+transition:all 0.2s ease;
+
+}
+
+.price-btn:hover{
+
+transform:translateY(-2px);
+
+background:#eaeaea;
+
+}
+
+.product-card{
+
+transition:all 0.2s ease;
+
+}
+
+.product-card:hover{
+
+transform:translateY(-3px);
+
+box-shadow:0 10px 25px rgba(0,0,0,0.5);
+
+}
