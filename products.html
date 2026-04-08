@@ -2,73 +2,59 @@
 <html lang="en">
 
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Brandle Products</title>
-
-<link rel="stylesheet" href="styles.css">
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brandle Products</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<header>
+  <header>
+    <div class="logo" onclick="window.location.href='index.html'" style="cursor:pointer;">
+      <img src="logo.png" class="logo-img">
+      <span>Brandle</span>
+    </div>
 
-<div class="logo" onclick="window.location.href='index.html'">
+    <nav>
+      <a href="products.html?search=gadgets">Gadgets</a>
+      <a href="products.html?search=discount gadgets">Deals</a>
+      <a href="products.html?search=top rated gadgets">Top Rated</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
 
-<img src="logo.png" class="logo-img">
+  <section class="products">
+    <h1 id="categoryTitle">Products</h1>
 
-<span>Brandle</span>
+    <!-- FILTERS -->
+    <div class="filters" style="margin:20px 0; display:flex; gap:10px; flex-wrap:wrap;">
+      <select id="priceFilter">
+        <option value="">Sort by Price</option>
+        <option value="low">Low to High</option>
+        <option value="high">High to Low</option>
+      </select>
 
-</div>
+      <select id="ratingFilter">
+        <option value="0">All Ratings</option>
+        <option value="4">4★ & above</option>
+        <option value="3">3★ & above</option>
+      </select>
+    </div>
 
-<nav>
+    <!-- PRODUCT GRID -->
+    <div id="productGrid" class="review-grid"></div>
+  </section>
 
-<a href="products.html">Gadgets</a>
+  <footer>
+    <p>© 2026 Brandle. All rights reserved.</p>
+    <p style="font-size:12px; opacity:0.7;">
+      As an Amazon Associate, we earn from qualifying purchases.
+    </p>
+  </footer>
 
-<a href="products.html?search=discount gadgets">Deals</a>
-
-<a href="products.html?search=top rated gadgets">Top Rated</a>
-
-<a href="about.html">About</a>
-
-</nav>
-</header>
-
-<section class="products">
-
-<h1 id="categoryTitle">Products</h1>
-
-<div style="margin-bottom:20px">
-
-<label>Sort by price:</label>
-
-<select id="priceFilter">
-<option value="default">Default</option>
-<option value="low">Low → High</option>
-<option value="high">High → Low</option>
-</select>
-
-<select id="ratingFilter">
-
-<option value="0">All Ratings</option>
-<option value="4">4⭐ & above</option>
-<option value="3">3⭐ & above</option>
-
-</select>
-<div id="productGrid" class="review-grid"></div>
-
-</section>
-
-<footer>
-<p>© 2026 Brandle. All rights reserved.</p>
-</footer>
-
-<script src="products.js"></script>
+  <script src="products.js"></script>
 
 </body>
 </html>
