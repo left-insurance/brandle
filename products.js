@@ -30,30 +30,36 @@ grid.innerHTML = `
 
 /* FETCH PRODUCTS */
 
-fetch(`https://real-time-amazon-data.p.rapidapi.com/search?query=${encodeURIComponent(searchQuery)}&country=IN&page=1`, {
-  method: "GET",
-  headers: {
-    "X-RapidAPI-Key": "10ec1b5b9bmsh94024ce5ecef51ap100b88jsne4edc7db587b",
-    "X-RapidAPI-Host": "real-time-amazon-data.p.rapidapi.com"
-  }
-})
-.then(res => res.json())
-.then(data => {
-  console.log(data);
+/* TEMP FIX — DUMMY PRODUCTS */
 
-  if (!data || !data.data || !data.data.products || data.data.products.length === 0) {
-    grid.innerHTML = "<p style='text-align:center;'>No products found</p>";
-    return;
-  }
+products = [
+{
+product_title: "Wireless Bluetooth Headphones",
+product_price: "₹999",
+product_photo: "https://images.unsplash.com/photo-1518444028785-8f8f2a3d6a8b",
+product_star_rating: "4.5"
+},
+{
+product_title: "Portable Mini Projector",
+product_price: "₹2,499",
+product_photo: "https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04",
+product_star_rating: "4.2"
+},
+{
+product_title: "Smart LED Strip Lights",
+product_price: "₹599",
+product_photo: "https://images.unsplash.com/photo-1606813902917-9c3d9a8d7b57",
+product_star_rating: "4.3"
+},
+{
+product_title: "Gaming Mouse RGB",
+product_price: "₹799",
+product_photo: "https://images.unsplash.com/photo-1587202372775-e229f172b9d7",
+product_star_rating: "4.4"
+}
+];
 
-  products = data.data.products;
-  displayProducts(products);
-})
-.catch(err => {
-  console.error(err);
-  grid.innerHTML = "<p style='text-align:center;'>Error loading products</p>";
-});
-
+displayProducts(products);
 /* DISPLAY FUNCTION */
 
 function displayProducts(list) {
