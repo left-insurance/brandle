@@ -7,18 +7,21 @@ const params = new URLSearchParams(window.location.search);
 let searchQuery = params.get("search");
 const category = params.get("cat");
 
+let products = [];
+
 /* CATEGORY MAPPING */
 
-if(!searchQuery){
-if(category === "cool") searchQuery = "cool gadgets";
-else if(category === "toys") searchQuery = "gaming gadgets";
-else if(category === "trending") searchQuery = "latest tech gadgets";
-else if(category === "500") searchQuery = "gadgets under 500";
-else if(category === "1000") searchQuery = "gadgets under 1000";
-else searchQuery = "gadgets";
+if (!searchQuery) {
+  if (category === "cool") searchQuery = "cool gadgets";
+  else if (category === "toys") searchQuery = "gaming gadgets";
+  else if (category === "trending") searchQuery = "latest tech gadgets";
+  else if (category === "500") searchQuery = "gadgets under 500";
+  else if (category === "1000") searchQuery = "gadgets under 1000";
+  else searchQuery = "gadgets";
 }
 
-/* LOADING */
+/* SHOW SPINNER ON LOAD */
+
 grid.innerHTML = `
 <div style="display:flex; justify-content:center; align-items:center; height:200px;">
   <div class="loader"></div>
@@ -27,142 +30,110 @@ grid.innerHTML = `
 
 /* FETCH PRODUCTS */
 
-fetch(`https://real-time-amazon-data.p.rapidapi.com/search?query=${searchQuery}&country=IN&page=1`, {
-method: "GET",
-headers: {
-"X-RapidAPI-Key": "10ec1b5b9bmsh94024ce5ecef51ap100b88jsne4edc7db587b",
-"X-RapidAPI-Host": "real-time-amazon-data.p.rapidapi.com"
-}
+fetch(`https://real-time-amazon-data.p.rapidapi.com/search?query=${encodeURIComponent(searchQuery)}&country=IN&page=1`, {
+  method: "GET",
+  headers: {
+    "X-RapidAPI-Key": "10ec1b5b9bmsh94024ce5ecef51ap100b88jsne4edc7db587b",
+    "X-RapidAPI-Host": "real-time-amazon-data.p.rapidapi.com"
+  }
 })
 .then(res => res.json())
 .then(data => {
+  console.log(data);
 
-if(!data || !data.data || !data.data.products){
-grid.innerHTML = "No products found";
-return;
-}
+  if (!data || !data.data || !data.data.products || data.data.products.length === 0) {
+    grid.innerHTML = "<p style='text-align:center;'>No products found</p>";
+    return;
+  }
 
-products = data.data.products;
-
-displayProducts(products);
-
+  products = data.data.products;
+  displayProducts(products);
 })
-.catch(err=>{
-console.error(err);
-grid.innerHTML = "Error loading products";
+.catch(err => {
+  console.error(err);
+  grid.innerHTML = "<p style='text-align:center;'>Error loading products</p>";
 });
-
 
 /* DISPLAY FUNCTION */
 
-function displayProducts(list){
+function displayProducts(list) {
+  grid.innerHTML = "";
 
-grid.innerHTML = "";
+  list.forEach(product => {
+    const card = document.createElement("div");
 
-list.forEach(product => {
+    card.innerHTML = `
+      <div class="product-card">
+        <div class="product-image">
+          <img src="${product.product_photo}" alt="${product.product_title}">
+        </div>
 
-const card = document.createElement("div");
+        <div class="product-info">
+          <h3>${product.product_title}</h3>
 
-card.innerHTML = `
+          <div class="rating">
+            ⭐ ${product.product_star_rating || "4.2"}
+          </div>
 
-<div class="product-card">
+          <p class="price">${product.product_price}</p>
 
-<div class="product-image">
-<img src="${product.product_photo}">
-</div>
+          <button class="price-btn" onclick="buyProduct('${product.product_title.replace(/'/g, "\\'")}')">
+            Check Best Price
+          </button>
+        </div>
+      </div>
+    `;
 
-<div class="product-info">
-
-<h3>${product.product_title}</h3>
-
-<div class="rating">
-⭐ ${product.product_star_rating || "4.2"} 
-<span class="reviews">(Verified)</span>
-</div>
-
-<p class="price">${product.product_price}</p>
-
-<p class="trust">✔ Best price on Amazon</p>
-
-<button class="price-btn" onclick="buyProduct('${product.product_title}')">
-Check Best Price
-</button>
-
-</div>
-
-</div>
-
-`;
-
-grid.appendChild(card);
-
-});
-
+    grid.appendChild(card);
+  });
 }
-
 
 /* FILTERS */
 
-function applyFilters(){
+function applyFilters() {
+  grid.innerHTML = `
+  <div style="display:flex; justify-content:center; align-items:center; height:200px;">
+    <div class="loader"></div>
+  </div>
+  `;
 
-/* SHOW SPINNER */
+  setTimeout(() => {
+    let filtered = [...products];
 
-grid.innerHTML = `<div class="loader"></div>`;
+    if (priceFilter && priceFilter.value === "low") {
+      filtered.sort((a, b) =>
+        parseFloat(a.product_price.replace(/[^0-9.]/g, '')) -
+        parseFloat(b.product_price.replace(/[^0-9.]/g, ''))
+      );
+    }
 
-/* SMALL DELAY FOR UX */
+    if (priceFilter && priceFilter.value === "high") {
+      filtered.sort((a, b) =>
+        parseFloat(b.product_price.replace(/[^0-9.]/g, '')) -
+        parseFloat(a.product_price.replace(/[^0-9.]/g, ''))
+      );
+    }
 
-setTimeout(()=>{
+    if (ratingFilter && ratingFilter.value !== "0") {
+      filtered = filtered.filter(p =>
+        parseFloat(p.product_star_rating || 4) >= parseFloat(ratingFilter.value)
+      );
+    }
 
-let filtered = [...products];
-
-/* PRICE SORT */
-
-if(priceFilter && priceFilter.value === "low"){
-filtered.sort((a,b)=>
-parseFloat(a.product_price.replace(/[^0-9.]/g,'')) -
-parseFloat(b.product_price.replace(/[^0-9.]/g,''))
-);
-}
-
-if(priceFilter && priceFilter.value === "high"){
-filtered.sort((a,b)=>
-parseFloat(b.product_price.replace(/[^0-9.]/g,'')) -
-parseFloat(a.product_price.replace(/[^0-9.]/g,''))
-);
-}
-
-/* RATING FILTER */
-
-if(ratingFilter && ratingFilter.value !== "0"){
-filtered = filtered.filter(p =>
-parseFloat(p.product_star_rating || 4) >= ratingFilter.value
-);
-}
-
-/* SHOW RESULTS */
-
-displayProducts(filtered);
-
-},400);
-
+    displayProducts(filtered);
+  }, 400);
 }
 
 /* EVENTS */
 
-if(priceFilter) priceFilter.addEventListener("change", applyFilters);
-if(ratingFilter) ratingFilter.addEventListener("change", applyFilters);
-
+if (priceFilter) priceFilter.addEventListener("change", applyFilters);
+if (ratingFilter) ratingFilter.addEventListener("change", applyFilters);
 
 /* AMAZON AFFILIATE */
 
-function buyProduct(title){
-
-const query = title.replace(/ /g,"+");
-
-const affiliateID = "brandle0a-21"; // <-- YOUR ID
-
-const url = `https://www.amazon.in/s?k=${query}&tag=${affiliateID}`;
-
-window.open(url,"_blank");
-
+function buyProduct(title) {
+  const query = title.replace(/ /g, "+");
+  const affiliateID = "brandle0a-21"; // your affiliate ID
+  const url = `https://www.amazon.in/s?k=${query}&tag=${affiliateID}`;
+  window.open(url, "_blank");
 }
