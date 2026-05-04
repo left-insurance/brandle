@@ -3,7 +3,7 @@ const priceFilter = document.getElementById("priceFilter");
 const ratingFilter = document.getElementById("ratingFilter");
 
 const params = new URLSearchParams(window.location.search);
-
+const pageParam = params.get("page") || 1;
 let searchQuery = params.get("search");
 const category = params.get("cat");
 
@@ -30,7 +30,7 @@ grid.innerHTML = `
 
 /* FETCH PRODUCTS */
 
-fetch(`https://real-time-amazon-data.p.rapidapi.com/search?query=${encodeURIComponent(searchQuery)}&country=IN&page=1`, {
+fetch(`https://real-time-amazon-data.p.rapidapi.com/search?query=${encodeURIComponent(searchQuery)}&country=IN&page=${pageParam}`, {
   method: "GET",
   headers: {
     "X-RapidAPI-Key": " 10ec1b5b9bmsh94024ce5ecef51ap100b88jsne4edc7db587b",
