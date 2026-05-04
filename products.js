@@ -147,19 +147,20 @@ function applyFilters(){
 
     let filtered = [...products];
 
-    if(priceFilter && priceFilter.value === "low"){
-      filtered.sort((a,b)=>
-        parseFloat(a.product_price.replace(/[^0-9.]/g,'')) -
-        parseFloat(b.product_price.replace(/[^0-9.]/g,''))
-      );
-    }
+  function getPrice(p){
+  if(!p.product_price) return 0;
+  return parseFloat(p.product_price.replace(/[^0-9.]/g,'')) || 0;
+}
 
-    if(priceFilter && priceFilter.value === "high"){
-      filtered.sort((a,b)=>
-        parseFloat(b.product_price.replace(/[^0-9.]/g,'')) -
-        parseFloat(a.product_price.replace(/[^0-9.]/g,''))
-      );
-    }
+/* LOW → HIGH */
+if(priceFilter && priceFilter.value === "low"){
+  filtered.sort((a,b)=> getPrice(a) - getPrice(b));
+}
+
+/* HIGH → LOW */
+if(priceFilter && priceFilter.value === "high"){
+  filtered.sort((a,b)=> getPrice(b) - getPrice(a));
+}
 
     if(ratingFilter && ratingFilter.value !== "0"){
       filtered = filtered.filter(p =>
