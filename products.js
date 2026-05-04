@@ -119,7 +119,7 @@ function displayProducts(list){
           <p class="price">${product.product_price}</p>
 
           <button class="price-btn" onclick="buyProduct('${product.product_title.replace(/'/g, "\\'")}')">
-            🔥 Check Best Price
+            Buy Now
           </button>
         </div>
 
