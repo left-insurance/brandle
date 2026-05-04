@@ -1597,3 +1597,116 @@ font-size:18px;
 font-weight:600;
 margin:8px 0;
 }
+
+/* PREMIUM PRODUCT CARD */
+
+.product-card{
+
+display:flex;
+gap:20px;
+
+background:#161616;
+
+padding:18px;
+
+border-radius:14px;
+
+align-items:center;
+
+border:1px solid rgba(255,255,255,0.05);
+
+transition:all 0.2s ease;
+
+}
+
+.product-card:hover{
+
+transform:translateY(-3px);
+
+box-shadow:0 12px 30px rgba(0,0,0,0.6);
+
+}
+
+
+/* IMAGE */
+
+.product-image img{
+
+width:140px;
+height:110px;
+
+object-fit:contain;
+
+background:white;
+
+border-radius:10px;
+
+padding:6px;
+
+}
+
+
+/* INFO BLOCK */
+
+.product-info{
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+
+gap:6px;
+
+max-width:500px;
+
+}
+
+
+/* TITLE */
+
+.product-info h3{
+
+font-size:16px;
+
+line-height:1.3;
+
+}
+
+
+/* PRICE */
+
+.price{
+
+font-size:18px;
+font-weight:600;
+
+}
+
+
+/* BUTTON */
+
+.price-btn{
+
+margin-top:6px;
+
+background:#fff;
+color:#000;
+
+border:none;
+
+padding:10px 16px;
+
+border-radius:8px;
+
+font-weight:600;
+
+cursor:pointer;
+
+transition:all 0.2s ease;
+
+}
+
+.price-btn:hover{
+
+background:#eaeaea;
+
+}
