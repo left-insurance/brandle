@@ -54,19 +54,31 @@ changeBackground();
 function randomGadget(){
 
 const gadgets = [
-
-"mini projector",
 "smart ring",
+"mini projector",
 "portable monitor",
+"gaming keyboard",
+"wireless earbuds",
+"drone camera",
+"led strip lights",
+"bluetooth speaker",
+"vr headset",
+"action camera",
+"smartwatch",
 "gaming mouse",
-"mini drone",
-"thermal printer"
-
+"mechanical keyboard",
+"usb hub",
+"webcam"
 ];
 
-const random = gadgets[Math.floor(Math.random()*gadgets.length)];
+/* RANDOM SEARCH TERM */
+const random = gadgets[Math.floor(Math.random() * gadgets.length)];
 
-window.location.href = "products.html?search=" + random;
+/* RANDOM PAGE */
+const randomPage = Math.floor(Math.random() * 5) + 1;
+
+/* GO TO PRODUCTS */
+window.location.href = `products.html?search=${encodeURIComponent(random)}&page=${randomPage}`;
 
 }
 
